@@ -8,7 +8,7 @@ UPLOAD_PATH = "uploads"
 os.makedirs(UPLOAD_PATH, exist_ok=True)
 
 # Admin Password (Change as needed)
-
+ADMIN_PASSWORD = "computer"
 # Initialize database
 def init_db():
     conn = sqlite3.connect(DB_PATH)
