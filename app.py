@@ -6,9 +6,7 @@ import sqlite3
 DB_PATH = "qna.db"
 UPLOAD_PATH = "uploads"
 os.makedirs(UPLOAD_PATH, exist_ok=True)
-
-# Admin Password (Change as needed)
-ADMIN_PASSWORD = "computer"
+AD = "computer"
 # Initialize database
 def init_db():
     conn = sqlite3.connect(DB_PATH)
@@ -36,16 +34,16 @@ init_db()
 # Sidebar for Admin Login
 st.sidebar.title("Admin Panel")
 admin_password = st.sidebar.text_input("Enter Admin Password:", type="password")
-is_admin = admin_password == ADMIN_PASSWORD
+is_admin = admin_password == AD
 
 # Sidebar Navigation
 st.sidebar.title("DAA Questions")
-options = ["Ask a Question", "View Questions"]
+options = ["View Questions", "upload Question"]
 selection = st.sidebar.radio("Navigation", options)
 
-if selection == "Ask a Question":
-    st.title("Ask a Question")
-    question_text = st.text_area("Enter your question:")
+if selection == "upload Question":
+    st.title("upload Question")
+    question_text = st.text_area("Enter your q or (batch):")
     uploaded_files = st.file_uploader("Upload media files:", accept_multiple_files=True)
     
     if st.button("Submit"):
